@@ -22,16 +22,16 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            <Badge variant="outline" className="mb-6 border-[rgba(254,254,254,0.12)] text-[rgba(254,254,254,0.5)] bg-transparent">
+            <Badge variant="outline" className="mb-6 border-border text-muted-foreground bg-transparent">
               AI Receptionists for Business
             </Badge>
 
-            <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
               Never Miss Another{" "}
-              <span className="text-[rgba(254,254,254,0.5)]">Customer Call</span>
+              <span className="text-muted-foreground">Customer Call</span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted md:text-xl">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
               AI voice agents that answer calls, book appointments, qualify leads,
               and support customers 24/7.
             </p>

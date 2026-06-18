@@ -10,7 +10,7 @@ const buttonVariants = cva(
         default:
           "bg-[rgba(254,254,254,0.05)] hover:bg-[rgba(254,254,254,0.02)] border-[rgba(254,254,254,0.12)]",
         solid:
-          "bg-[#fefefe] hover:bg-[#e0e0e0] text-[#0e0e00] border-transparent font-semibold",
+          "bg-[#fefefe] hover:bg-[#e0e0e0] text-[#0a0a0a] border-transparent font-semibold",
         ghost:
           "border-transparent bg-transparent hover:border-[rgba(254,254,254,0.2)] hover:bg-[rgba(254,254,254,0.05)]",
       },

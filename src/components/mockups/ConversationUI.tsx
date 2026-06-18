@@ -22,7 +22,7 @@ export function ConversationUI() {
   }, [visibleCount]);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-[rgba(254,254,254,0.08)] bg-[#0e0e00] shadow-2xl">
+    <div className="overflow-hidden rounded-2xl border border-[rgba(254,254,254,0.08)] bg-[#0a0a0a] shadow-2xl">
       <div className="flex items-center gap-3 border-b border-[rgba(254,254,254,0.08)] px-5 py-4">
         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(254,254,254,0.08)]">
           <PhoneIncoming className="h-5 w-5 text-[#fefefe]" />

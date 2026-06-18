@@ -151,7 +151,7 @@ export function Feature108() {
           <div
             className="rounded-2xl p-8 md:p-12 lg:p-16"
             style={{
-              background: "rgba(26,26,13,0.5)",
+              background: "rgba(25,25,25,0.5)",
               border: "1px solid rgba(254,254,254,0.06)",
             }}
           >
@@ -191,7 +191,7 @@ export function Feature108() {
                   <div
                     className="flex items-center justify-center rounded-2xl aspect-video"
                     style={{
-                      background: "rgba(14,14,0,0.6)",
+                      background: "rgba(10,10,10,0.6)",
                       border: "1px solid rgba(254,254,254,0.06)",
                     }}
                   >

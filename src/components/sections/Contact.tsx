@@ -17,7 +17,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="border-t border-[rgba(254,254,254,0.08)] bg-[#0e0e00] py-24 md:py-32">
+    <section id="contact" className="border-t border-[rgba(254,254,254,0.08)] bg-[#0a0a0a] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-16 lg:grid-cols-2">
           <FadeIn>
@@ -55,7 +55,7 @@ export function Contact() {
 
           <FadeIn delay={0.2}>
             {submitted ? (
-              <div className="flex flex-col items-center justify-center rounded-2xl border border-[rgba(254,254,254,0.08)] bg-[#1a1a0d] p-12 text-center">
+              <div className="flex flex-col items-center justify-center rounded-2xl border border-[rgba(254,254,254,0.08)] bg-[#191919] p-12 text-center">
                 <CheckCircle className="h-12 w-12 text-[#fefefe]" />
                 <h3 className="mt-4 text-xl font-semibold text-white">Thank you!</h3>
                 <p className="mt-2 text-sm text-[rgba(254,254,254,0.5)]">

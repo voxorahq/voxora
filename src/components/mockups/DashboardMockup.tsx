@@ -12,7 +12,7 @@ const CHART_BARS = [40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88];
 
 export function DashboardMockup() {
   return (
-    <div className="overflow-hidden rounded-2xl border border-[rgba(254,254,254,0.08)] bg-[#0e0e00] shadow-2xl">
+    <div className="overflow-hidden rounded-2xl border border-[rgba(254,254,254,0.08)] bg-[#0a0a0a] shadow-2xl">
       <div className="flex items-center justify-between border-b border-[rgba(254,254,254,0.08)] px-5 py-4">
         <div className="flex items-center gap-2">
           <BarChart3 className="h-5 w-5 text-[#fefefe]" />

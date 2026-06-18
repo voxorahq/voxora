@@ -19,7 +19,7 @@ export function StatCard({ label, value, icon: Icon, className, delay = 0 }: Sta
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.6, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
       className={cn(
-        "rounded-xl border border-[rgba(254,254,254,0.08)] bg-[rgba(26,26,13,0.8)] p-4 shadow-xl backdrop-blur-sm",
+        "rounded-xl border border-[rgba(254,254,254,0.08)] bg-[rgba(25,25,25,0.8)] p-4 shadow-xl backdrop-blur-sm",
         className
       )}
     >

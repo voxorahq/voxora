@@ -93,8 +93,8 @@ export function Pricing({
               className={cn(
                 "relative flex flex-col rounded-2xl p-8 transition-all duration-300",
                 plan.isPopular
-                  ? "bg-[#fefefe] text-[#0e0e00]"
-                  : "bg-[#1a1a0d] text-[#fefefe]"
+                  ? "bg-[#fefefe] text-[#0a0a0a]"
+                  : "bg-[#191919] text-[#fefefe]"
               )}
               style={{
                 border: plan.isPopular
@@ -103,7 +103,7 @@ export function Pricing({
               }}
             >
               {plan.isPopular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-4 py-1 rounded-full bg-[#0e0e00] text-[#fefefe] text-xs font-semibold">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-4 py-1 rounded-full bg-[#0a0a0a] text-[#fefefe] text-xs font-semibold">
                   <Star className="h-3 w-3 fill-current" />
                   Most Popular
                 </div>
@@ -112,7 +112,7 @@ export function Pricing({
               <h3
                 className={cn(
                   "text-xl font-semibold",
-                  plan.isPopular ? "text-[#0e0e00]" : "text-[#fefefe]"
+                  plan.isPopular ? "text-[#0a0a0a]" : "text-[#fefefe]"
                 )}
               >
                 {plan.name}
@@ -121,7 +121,7 @@ export function Pricing({
                 className={cn(
                   "mt-2 text-sm",
                   plan.isPopular
-                    ? "text-[rgba(14,14,0,0.6)]"
+                    ? "text-[rgba(10,10,10,0.6)]"
                     : "text-[rgba(254,254,254,0.5)]"
                 )}
               >
@@ -133,7 +133,7 @@ export function Pricing({
                 <span
                   className={cn(
                     "text-4xl font-bold",
-                    plan.isPopular ? "text-[#0e0e00]" : "text-[#fefefe]"
+                    plan.isPopular ? "text-[#0a0a0a]" : "text-[#fefefe]"
                   )}
                 >
                   {isMonthly ? plan.price : plan.yearlyPrice}
@@ -142,7 +142,7 @@ export function Pricing({
                   className={cn(
                     "text-sm",
                     plan.isPopular
-                      ? "text-[rgba(14,14,0,0.5)]"
+                      ? "text-[rgba(10,10,10,0.5)]"
                       : "text-[rgba(254,254,254,0.4)]"
                   )}
                 >
@@ -158,14 +158,14 @@ export function Pricing({
                       className={cn(
                         "mt-0.5 h-4 w-4 shrink-0",
                         plan.isPopular
-                          ? "text-[#0e0e00]"
+                          ? "text-[#0a0a0a]"
                           : "text-[rgba(254,254,254,0.7)]"
                       )}
                     />
                     <span
                       className={
                         plan.isPopular
-                          ? "text-[rgba(14,14,0,0.8)]"
+                          ? "text-[rgba(10,10,10,0.8)]"
                           : "text-[rgba(254,254,254,0.7)]"
                       }
                     >
@@ -182,7 +182,7 @@ export function Pricing({
                 className={cn(
                   "mt-8 block w-full py-3 px-6 rounded-xl text-sm font-semibold text-center transition-all duration-200",
                   plan.isPopular
-                    ? "bg-[#0e0e00] text-[#fefefe] hover:bg-[#1a1a0d]"
+                    ? "bg-[#0a0a0a] text-[#fefefe] hover:bg-[#191919]"
                     : "border border-[rgba(254,254,254,0.15)] text-[#fefefe] hover:bg-[rgba(254,254,254,0.05)]"
                 )}
               >

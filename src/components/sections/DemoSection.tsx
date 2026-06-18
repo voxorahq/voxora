@@ -24,8 +24,8 @@ export function DemoSection() {
         </FadeIn>
 
         <FadeIn delay={0.2} className="mt-16">
-          <div className="overflow-hidden rounded-2xl border border-[rgba(254,254,254,0.08)] bg-[#1a1a0d] shadow-2xl ring-1 ring-white/5">
-            <div className="relative aspect-video bg-[#0e0e00]">
+          <div className="overflow-hidden rounded-2xl border border-[rgba(254,254,254,0.08)] bg-[#191919] shadow-2xl ring-1 ring-white/5">
+            <div className="relative aspect-video bg-[#0a0a0a]">
               <video
                 key={activeDemo.id}
                 className="h-full w-full object-cover"

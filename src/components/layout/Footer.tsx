@@ -4,7 +4,7 @@ import { FOOTER_LINKS, SITE } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[rgba(254,254,254,0.08)] bg-[#0e0e00]">
+    <footer className="border-t border-[rgba(254,254,254,0.08)] bg-[#0a0a0a]">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>

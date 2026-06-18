@@ -38,7 +38,7 @@ export function NavBar({ items, className }: NavBarProps) {
       <div
         className="flex items-center gap-1 sm:gap-2 py-1.5 px-2 rounded-full shadow-2xl"
         style={{
-          background: "rgba(14,14,0,0.75)",
+          background: "rgba(10,10,10,0.75)",
           border: "1px solid rgba(254,254,254,0.10)",
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",

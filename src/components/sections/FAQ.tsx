@@ -26,18 +26,18 @@ export function FAQ() {
         <div className="mt-12 space-y-3">
           {FAQ_ITEMS.map((item, i) => (
             <FadeIn key={item.question} delay={i * 0.05}>
-              <div className="overflow-hidden rounded-xl border border-[rgba(254,254,254,0.08)] bg-transparent">
+              <div className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
                 <button
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   data-magnetic
                   className="flex w-full items-center justify-between px-6 py-5 text-left cursor-none"
                 >
-                  <span className="pr-4 text-sm font-medium text-white md:text-base">
+                  <span className="pr-4 text-sm font-medium text-foreground md:text-base">
                     {item.question}
                   </span>
                   <ChevronDown
                     className={cn(
-                      "h-5 w-5 shrink-0 text-[rgba(254,254,254,0.5)] transition-transform duration-200",
+                      "h-5 w-5 shrink-0 text-muted-foreground transition-transform duration-200",
                       openIndex === i && "rotate-180"
                     )}
                   />
@@ -50,7 +50,7 @@ export function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <p className="px-6 pb-5 text-sm leading-relaxed text-[rgba(254,254,254,0.5)]">
+                      <p className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground">
                         {item.answer}
                       </p>
                     </motion.div>

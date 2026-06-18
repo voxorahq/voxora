@@ -1,67 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap');
 @import "tailwindcss";
 
 /* ============================================================
-   DESIGN TOKENS — Onyx / Paper White monochrome system
+   DESIGN TOKENS — Theme Variables
    ============================================================ */
 :root {
-  /* Core palette */
-  --onyx: #0e0e00;
-  --paper-white: #fefefe;
-  --faint-white: #2a2a2a;
-
-  /* Semantic mappings */
-  --background: var(--onyx);
-  --foreground: var(--paper-white);
-  --surface: #1a1a0d;
-  --surface-elevated: var(--faint-white);
-  --border: rgba(254, 254, 254, 0.08);
-  --muted: rgba(254, 254, 254, 0.45);
-
-  /* shadcn-compatible tokens */
-  --card: var(--surface);
-  --card-foreground: var(--foreground);
-  --popover: var(--surface);
-  --popover-foreground: var(--foreground);
-  --primary: var(--paper-white);
-  --primary-foreground: var(--onyx);
-  --secondary: var(--faint-white);
-  --secondary-foreground: var(--paper-white);
-  --muted-foreground: rgba(254, 254, 254, 0.45);
-  --accent: var(--faint-white);
-  --accent-foreground: var(--paper-white);
-  --destructive: #ef4444;
-  --destructive-foreground: var(--paper-white);
-  --input: rgba(254, 254, 254, 0.08);
-  --ring: rgba(254, 254, 254, 0.3);
-  --radius: 0.5rem;
+  --card: #191919;
+  --ring: #737373;
+  --input: #525252;
+  --muted: #262626;
+  --accent: #404040;
+  --border: #383838;
+  --radius: 0rem;
+  --chart-1: #737373;
+  --chart-2: #737373;
+  --chart-3: #737373;
+  --chart-4: #737373;
+  --chart-5: #737373;
+  --popover: #262626;
+  --primary: #737373;
+  --sidebar: #171717;
+  --font-mono: "Geist Mono", monospace;
+  --font-sans: "Geist Mono", monospace;
+  --secondary: #262626;
+  --background: #0a0a0a;
+  --font-serif: "Geist Mono", monospace;
+  --foreground: #fafafa;
+  --destructive: #ff6467;
+  --shadow-blur: 0px;
+  --shadow-color: hsl(0 0% 0%);
+  --sidebar-ring: #525252;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0;
+  --sidebar-accent: #262626;
+  --sidebar-border: #ffffff;
+  --card-foreground: #fafafa;
+  --shadow-offset-x: 0px;
+  --shadow-offset-y: 1px;
+  --sidebar-primary: #fafafa;
+  --muted-foreground: #a1a1a1;
+  --accent-foreground: #fafafa;
+  --popover-foreground: #fafafa;
+  --primary-foreground: #fafafa;
+  --sidebar-foreground: #fafafa;
+  --secondary-foreground: #fafafa;
+  --destructive-foreground: #262626;
+  --sidebar-accent-foreground: #fafafa;
+  --sidebar-primary-foreground: #171717;
 }
+
 
 /* ============================================================
    TAILWIND v4 THEME INLINE
    ============================================================ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-surface-elevated: var(--surface-elevated);
-  --color-border: var(--border);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
   --color-ring: var(--ring);
   --color-input: var(--input);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-radius: var(--radius);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-popover: var(--popover);
+  --color-primary: var(--primary);
+  --color-sidebar: var(--sidebar);
+  --color-font-mono: var(--font-mono);
+  --color-font-sans: var(--font-sans);
+  --color-secondary: var(--secondary);
+  --color-background: var(--background);
+  --color-font-serif: var(--font-serif);
+  --color-foreground: var(--foreground);
   --color-destructive: var(--destructive);
-
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --color-shadow-blur: var(--shadow-blur);
+  --color-shadow-color: var(--shadow-color);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-shadow-spread: var(--shadow-spread);
+  --color-shadow-opacity: var(--shadow-opacity);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-card-foreground: var(--card-foreground);
+  --color-shadow-offset-x: var(--shadow-offset-x);
+  --color-shadow-offset-y: var(--shadow-offset-y);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
 
   /* Type scale from spec */
   --text-caption: 12px;
@@ -91,7 +125,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-sans);
   overflow-x: hidden;
   cursor: none; /* MagneticCursor takes over */
   -webkit-font-smoothing: antialiased;
@@ -104,17 +138,17 @@ body {
 }
 
 ::selection {
-  background: rgba(254, 254, 254, 0.2);
-  color: var(--paper-white);
+  background: rgba(115, 115, 115, 0.2);
+  color: var(--foreground);
 }
 
 /* ============================================================
    CUSTOM SCROLLBAR
    ============================================================ */
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--onyx); }
+::-webkit-scrollbar-track { background: var(--background); }
 ::-webkit-scrollbar-thumb {
-  background: var(--faint-white);
+  background: var(--border);
   border-radius: 2px;
 }
 
@@ -122,11 +156,11 @@ body {
    TYPOGRAPHY HELPERS
    ============================================================ */
 .font-serif {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-serif);
 }
 
 .font-sans {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* Display wall (216px tight-stacked) */
@@ -140,7 +174,7 @@ body {
    GLASS / SURFACE UTILITIES
    ============================================================ */
 .glass-card {
-  background: rgba(26, 26, 13, 0.6);
+  background: var(--card);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
@@ -149,8 +183,8 @@ body {
 }
 
 .glass-card:hover {
-  border-color: rgba(254, 254, 254, 0.15);
-  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.5);
+  border-color: var(--ring);
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.1);
 }
 
 /* ============================================================
@@ -160,3 +194,4 @@ body {
   filter: blur(8px);
   opacity: 0.6;
 }
+
