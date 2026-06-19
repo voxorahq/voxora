@@ -41,13 +41,9 @@ export function Pricing({
         {/* Header */}
         <div className="text-center mb-12">
           <span
-            className="inline-block mb-4 px-3 py-1 text-xs font-semibold tracking-widest uppercase rounded-full"
-            style={{
-              border: "1px solid rgba(254,254,254,0.12)",
-              color: "rgba(254,254,254,0.6)",
-            }}
+            className="badge-accent inline-block mb-4 px-3 py-1 text-xs font-bold tracking-widest uppercase rounded-full"
           >
-            Pricing
+            <span className="text-gradient-gemini">Pricing</span>
           </span>
           <h2 className="text-4xl font-semibold text-[#fefefe] md:text-5xl">{title}</h2>
           <p className="mt-4 text-[rgba(254,254,254,0.5)] max-w-xl mx-auto">{description}</p>

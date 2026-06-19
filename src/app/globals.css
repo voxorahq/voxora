@@ -405,6 +405,124 @@ body {
   animation: travel-inward-right 4s linear infinite;
 }
 
+/* ============================================================
+   AMBIENT FLOATING BACKGROUND GLOWS
+   ============================================================ */
+
+@keyframes ambient-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(40px, -60px) scale(1.15);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.9);
+  }
+}
+
+.animate-ambient {
+  animation: ambient-float 22s ease-in-out infinite;
+}
+
+/* ============================================================
+   NEON GLOW THEME PRESETS
+   ============================================================ */
+
+:root {
+  /* Default Theme: Sophisticated Violet & Slate (Enterprise luxury) */
+  --accent-color-1: #8b5cf6;
+  --accent-color-2: #6366f1;
+  --accent-color-3: #cbd5e1;
+  --accent-color-1-rgb: 139, 92, 246;
+  --accent-color-3-rgb: 203, 213, 225;
+  --accent-border: rgba(139, 92, 246, 0.2);
+  --accent-bg: rgba(139, 92, 246, 0.05);
+  --accent-glow: rgba(139, 92, 246, 0.06);
+}
+
+.theme-white-ice {
+  --accent-color-1: #ffffff;
+  --accent-color-2: #9ca3af;
+  --accent-color-3: #38bdf8;
+  --accent-color-1-rgb: 255, 255, 255;
+  --accent-color-3-rgb: 56, 189, 248;
+  --accent-border: rgba(255, 255, 255, 0.15);
+  --accent-bg: rgba(255, 255, 255, 0.03);
+  --accent-glow: rgba(255, 255, 255, 0.05);
+}
+
+.theme-blue-cyan {
+  --accent-color-1: #3b82f6;
+  --accent-color-2: #4f46e5;
+  --accent-color-3: #06b6d4;
+  --accent-color-1-rgb: 59, 130, 246;
+  --accent-color-3-rgb: 6, 182, 212;
+  --accent-border: rgba(59, 130, 246, 0.2);
+  --accent-bg: rgba(59, 130, 246, 0.05);
+  --accent-glow: rgba(59, 130, 246, 0.06);
+}
+
+.theme-emerald {
+  --accent-color-1: #10b981;
+  --accent-color-2: #059669;
+  --accent-color-3: #34d399;
+  --accent-color-1-rgb: 16, 185, 129;
+  --accent-color-3-rgb: 52, 211, 153;
+  --accent-border: rgba(16, 185, 129, 0.2);
+  --accent-bg: rgba(16, 185, 129, 0.05);
+  --accent-glow: rgba(16, 185, 129, 0.06);
+}
+
+.theme-gemini {
+  --accent-color-1: #ff2a85;
+  --accent-color-2: #8b5cf6;
+  --accent-color-3: #00d2ff;
+  --accent-color-1-rgb: 255, 42, 133;
+  --accent-color-3-rgb: 0, 210, 255;
+  --accent-border: rgba(255, 42, 133, 0.2);
+  --accent-bg: rgba(255, 42, 133, 0.05);
+  --accent-glow: rgba(255, 42, 133, 0.06);
+}
+
+.bg-gradient-gemini {
+  background: linear-gradient(135deg, var(--accent-color-1) 0%, var(--accent-color-2) 50%, var(--accent-color-3) 100%);
+}
+
+.text-gradient-gemini {
+  background: linear-gradient(135deg, var(--accent-color-1) 0%, var(--accent-color-2) 50%, var(--accent-color-3) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.grainy-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+.bg-ambient-pink {
+  background: radial-gradient(circle at center, rgba(var(--accent-color-1-rgb), 0.06) 0%, transparent 70%);
+}
+
+.bg-ambient-blue {
+  background: radial-gradient(circle at center, rgba(var(--accent-color-3-rgb), 0.06) 0%, transparent 70%);
+}
+
+.bg-ambient-purple {
+  background: radial-gradient(circle at center, rgba(var(--accent-color-1-rgb), 0.04) 0%, transparent 70%);
+}
+
+.badge-accent {
+  border: 1px solid var(--accent-border) !important;
+  background-color: var(--accent-bg) !important;
+  box-shadow: 0 0 12px var(--accent-glow) !important;
+}
+
 
 
 

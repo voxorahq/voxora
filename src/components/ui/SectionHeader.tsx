@@ -27,13 +27,9 @@ export function SectionHeader({
     >
       {badge && (
         <span
-          className="inline-block mb-4 px-3 py-1 text-xs font-semibold tracking-widest uppercase rounded-full"
-          style={{
-            border: "1px solid rgba(254,254,254,0.12)",
-            color: "rgba(254,254,254,0.6)",
-          }}
+          className="badge-accent inline-block mb-4 px-3 py-1 text-xs font-bold tracking-widest uppercase rounded-full"
         >
-          {badge}
+          <span className="text-gradient-gemini">{badge}</span>
         </span>
       )}
       <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">

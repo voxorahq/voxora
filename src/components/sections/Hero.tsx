@@ -22,8 +22,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            <Badge variant="outline" className="mb-6 border-border text-muted-foreground bg-transparent">
-              AI Receptionists for Business
+            <Badge variant="outline" className="badge-accent mb-6">
+              <span className="text-gradient-gemini">AI Receptionists for Business</span>
             </Badge>
 
             <h1 className="text-4xl font-semibold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
