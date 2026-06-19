@@ -6,38 +6,70 @@ import Link from "next/link";
 import Image from "next/image";
 import { MagneticCursor } from "@/components/ui/magnetic-cursor";
 
-export default function Login() {
+export default function Signup() {
   const router = useRouter();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!email || !password) {
-      setError("Email and password are required.");
+    if (!name || !email || !password) {
+      setError("All fields are required.");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters.");
       return;
     }
     setLoading(true);
     try {
-      const res = await fetch("/api/auth/login", {
+      // Register
+      const regRes = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, password }),
+      });
+      const regData = await regRes.json();
+      if (!regRes.ok) {
+        setError(regData.message || "Registration failed.");
+        return;
+      }
+
+      // Auto-login
+      const loginRes = await fetch("/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-      const data = await res.json();
-      if (data.success) {
+      const loginData = await loginRes.json();
+      if (loginData.success) {
         router.push("/dashboards");
       } else {
-        setError(data.message || "Invalid credentials.");
+        router.push("/login");
       }
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
+  };
+
+  const inputStyle: React.CSSProperties = {
+    background: "var(--muted)",
+    border: "1px solid var(--border)",
+    borderRadius: "8px",
+    padding: "12px 16px",
+    color: "var(--foreground)",
+    fontSize: "14px",
+    outline: "none",
+    transition: "border-color 0.2s",
+    fontFamily: "var(--font-sans)",
+    width: "100%",
+    boxSizing: "border-box",
   };
 
   return (
@@ -76,35 +108,42 @@ export default function Login() {
           padding: "40px",
         }}>
           <h1 style={{ fontSize: "24px", fontWeight: 700, color: "var(--foreground)", margin: "0 0 8px" }}>
-            Welcome back
+            Create your account
           </h1>
           <p style={{ fontSize: "14px", color: "var(--muted-foreground)", margin: "0 0 32px" }}>
-            Sign in to your Voxora dashboard
+            Start deploying AI voice agents today
           </p>
 
-          <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <form onSubmit={handleSignup} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            {/* Name */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+              <label style={{ fontSize: "13px", fontWeight: 500, color: "var(--foreground)" }}>
+                Full name
+              </label>
+              <input
+                id="signup-name"
+                type="text"
+                placeholder="John Smith"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                style={inputStyle}
+                onFocus={(e) => (e.target.style.borderColor = "var(--ring)")}
+                onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
+              />
+            </div>
+
             {/* Email */}
             <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
               <label style={{ fontSize: "13px", fontWeight: 500, color: "var(--foreground)" }}>
-                Email
+                Work email
               </label>
               <input
-                id="login-email"
+                id="signup-email"
                 type="email"
                 placeholder="you@company.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                style={{
-                  background: "var(--muted)",
-                  border: "1px solid var(--border)",
-                  borderRadius: "8px",
-                  padding: "12px 16px",
-                  color: "var(--foreground)",
-                  fontSize: "14px",
-                  outline: "none",
-                  transition: "border-color 0.2s",
-                  fontFamily: "var(--font-sans)",
-                }}
+                style={inputStyle}
                 onFocus={(e) => (e.target.style.borderColor = "var(--ring)")}
                 onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
               />
@@ -116,22 +155,12 @@ export default function Login() {
                 Password
               </label>
               <input
-                id="login-password"
+                id="signup-password"
                 type="password"
-                placeholder="••••••••"
+                placeholder="Min. 6 characters"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                style={{
-                  background: "var(--muted)",
-                  border: "1px solid var(--border)",
-                  borderRadius: "8px",
-                  padding: "12px 16px",
-                  color: "var(--foreground)",
-                  fontSize: "14px",
-                  outline: "none",
-                  transition: "border-color 0.2s",
-                  fontFamily: "var(--font-sans)",
-                }}
+                style={inputStyle}
                 onFocus={(e) => (e.target.style.borderColor = "var(--ring)")}
                 onBlur={(e) => (e.target.style.borderColor = "var(--border)")}
               />
@@ -153,7 +182,7 @@ export default function Login() {
 
             {/* Submit */}
             <button
-              id="login-submit"
+              id="signup-submit"
               type="submit"
               disabled={loading}
               style={{
@@ -170,8 +199,15 @@ export default function Login() {
                 letterSpacing: "0.01em",
               }}
             >
-              {loading ? "Signing in…" : "Sign in"}
+              {loading ? "Creating account…" : "Create account"}
             </button>
+
+            <p style={{ textAlign: "center", fontSize: "12px", color: "var(--muted-foreground)", margin: 0 }}>
+              By signing up you agree to our{" "}
+              <Link href="/terms" style={{ color: "var(--foreground)", textDecoration: "none" }}>Terms</Link>
+              {" & "}
+              <Link href="/privacy" style={{ color: "var(--foreground)", textDecoration: "none" }}>Privacy Policy</Link>
+            </p>
           </form>
         </div>
 
@@ -182,9 +218,9 @@ export default function Login() {
           fontSize: "14px",
           color: "var(--muted-foreground)",
         }}>
-          Don&apos;t have an account?{" "}
-          <Link href="/signup" style={{ color: "var(--foreground)", fontWeight: 500, textDecoration: "none" }}>
-            Sign up
+          Already have an account?{" "}
+          <Link href="/login" style={{ color: "var(--foreground)", fontWeight: 500, textDecoration: "none" }}>
+            Sign in
           </Link>
         </p>
       </div>
