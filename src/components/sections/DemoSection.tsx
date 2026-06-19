@@ -399,7 +399,6 @@ export function DemoSection() {
         {/* Dynamic Conversation Player Card (Minimalist Centered) */}
         <FadeIn delay={0.2} className="mt-16 flex justify-center w-full">
           <ConversationPlayer
-            key={activeDemo.id}
             audioSrc={activeDemo.audioSrc}
             transcript={activeDemo.transcript}
             activeDemoId={activeId}

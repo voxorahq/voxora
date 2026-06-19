@@ -41,6 +41,15 @@ export function ConversationPlayer({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Reset audio playback state when source changes
+  useEffect(() => {
+    setIsPlaying(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.load();
+    }
+  }, [audioSrc]);
+
   // Continuous 60fps Rotation & Time ticking for wave calculations
   useEffect(() => {
     let animFrame: number;
