@@ -141,11 +141,14 @@ export function ConversationPlayer({
         {/* AI Center Node (Retell-style pulsing morphing 3D Glass sphere) */}
         <button
           onClick={togglePlay}
-          className="group absolute w-24 h-24 md:w-36 md:h-36 rounded-full flex items-center justify-center transition-all duration-300 z-50 cursor-none retell-orb border-none outline-none relative"
+          className="group absolute w-24 h-24 md:w-36 md:h-36 rounded-full flex items-center justify-center transition-all duration-300 z-50 cursor-none retell-orb border-none outline-none relative overflow-hidden"
           type="button"
         >
+          {/* Grainy Noise Overlay clipped to the morphing orb shape */}
+          <div className="orb-grain rounded-full" />
+
           {/* Inner hover play/pause icon overlay */}
-          <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-black/10 rounded-full">
+          <div className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-black/10 rounded-full z-10">
             {isPlaying ? (
               <Pause className="w-6 h-6 fill-current md:w-8 md:h-8" />
             ) : (
