@@ -10,10 +10,40 @@ import { cn } from "@/lib/utils";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      company: formData.get("business") as string,
+      phone: formData.get("phone") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setError(data.message || "Failed to submit contact. Please try again.");
+      }
+    } catch {
+      setError("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -133,8 +163,17 @@ export function Contact() {
                     placeholder="Tell us about your business and call volume..."
                   />
                 </div>
-                <Button type="submit" size="lg" className="mt-6 w-full cursor-none" data-magnetic>
-                  Book Demo
+                {error && (
+                  <p className="mt-4 text-sm text-[#ff4d4d] text-center">{error}</p>
+                )}
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="mt-6 w-full cursor-none" 
+                  data-magnetic
+                  disabled={loading}
+                >
+                  {loading ? "Submitting..." : "Book Demo"}
                 </Button>
               </form>
             )}

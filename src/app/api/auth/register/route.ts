@@ -7,7 +7,16 @@ export async function POST(req: Request) {
   try {
     await connectDB();
 
-    const { email, password } = await req.json();
+    // Disable registration if an admin account already exists
+    const adminExists = await User.findOne();
+    if (adminExists) {
+      return NextResponse.json(
+        { message: "Registrations are closed. Only one admin account is allowed." },
+        { status: 403 }
+      );
+    }
+
+    const { name, email, password } = await req.json();
 
     if (!email || !password) {
       return NextResponse.json(
@@ -28,6 +37,7 @@ export async function POST(req: Request) {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await User.create({
+      name,
       email,
       password: hashedPassword,
     });

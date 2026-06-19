@@ -6,11 +6,9 @@ import {
   BarChart3,
   DollarSign,
   Mail,
-  HelpCircle,
   Play,
 } from "lucide-react";
 import { NavBar } from "@/components/ui/tubelight-navbar";
-import { SITE } from "@/lib/constants";
 import Link from "next/link";
 
 const NAV_ITEMS = [
@@ -23,5 +21,10 @@ const NAV_ITEMS = [
 ];
 
 export function Navbar() {
-  return <NavBar items={NAV_ITEMS} />;
+  return (
+    <>
+      {/* Center floating pill */}
+      <NavBar items={NAV_ITEMS} />
+    </>
+  );
 }
