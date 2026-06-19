@@ -197,25 +197,15 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
       const handlePointerEnter = () => {
         const state = cursorStateRef.current;
         if (!state) return;
-        const { hoverPadding } = configRef.current;
-        state.hover.isHovered = true;
         state.isDetaching = false;
 
-        const bounds = el.getBoundingClientRect();
-        const computedStyle = window.getComputedStyle(el);
-        const magneticColor =
-          el.getAttribute("data-magnetic-color") || cursorColor;
-        const centerX = bounds.left + bounds.width / 2;
-        const centerY = bounds.top + bounds.height / 2;
+        const { cursorSize } = configRef.current;
 
         gsap.killTweensOf(cursorEl);
         gsap.to(cursorEl, {
-          x: centerX,
-          y: centerY,
-          width: bounds.width + hoverPadding * 2,
-          height: bounds.height + hoverPadding * 2,
-          borderRadius: computedStyle.borderRadius,
-          backgroundColor: magneticColor,
+          width: cursorSize * 1.5,
+          height: cursorSize * 1.5,
+          borderRadius: "50%",
           scaleX: 1,
           scaleY: 1,
           rotate: 0,
@@ -228,15 +218,6 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
       const handlePointerLeave = () => {
         const state = cursorStateRef.current;
         if (!state) return;
-        const currentX = gsap.getProperty(cursorEl, "x") as number;
-        const currentY = gsap.getProperty(cursorEl, "y") as number;
-
-        state.pos.current.x = currentX;
-        state.pos.current.y = currentY;
-        state.pos.previous.x = currentX;
-        state.pos.previous.y = currentY;
-        state.hover.isHovered = false;
-        state.isDetaching = true;
 
         const { cursorSize } = configRef.current;
         const shapeBorderRadius =
@@ -247,15 +228,11 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
           width: cursorSize,
           height: cursorSize,
           borderRadius: shapeBorderRadius,
-          backgroundColor: cursorColor,
           scaleX: 1,
           scaleY: 1,
           duration: detachDuration,
           ease: "power3.out",
           overwrite: "auto",
-          onComplete: () => {
-            state.isDetaching = false;
-          },
         });
       };
 

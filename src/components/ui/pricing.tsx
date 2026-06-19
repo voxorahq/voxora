@@ -18,6 +18,8 @@ interface PricingPlan {
   buttonText: string;
   href: string;
   isPopular: boolean;
+  setupFee?: string;
+  yearlySavings?: string;
 }
 
 interface PricingProps {
@@ -76,7 +78,7 @@ export function Pricing({
           >
             Yearly
             <span className="text-xs px-2 py-0.5 rounded-full bg-[rgba(254,254,254,0.08)] text-[rgba(254,254,254,0.7)]">
-              Save 20%
+              2 Months Free
             </span>
           </Label>
         </div>
@@ -129,25 +131,55 @@ export function Pricing({
               </p>
 
               {/* Price */}
-              <div className="mt-6 flex items-baseline gap-1">
-                <span
-                  className={cn(
-                    "text-4xl font-bold",
-                    plan.isPopular ? "text-[#0a0a0a]" : "text-[#fefefe]"
-                  )}
-                >
-                  {isMonthly ? plan.price : plan.yearlyPrice}
-                </span>
-                <span
-                  className={cn(
-                    "text-sm",
-                    plan.isPopular
-                      ? "text-[rgba(10,10,10,0.5)]"
-                      : "text-[rgba(254,254,254,0.4)]"
-                  )}
-                >
-                  /{plan.period}
-                </span>
+              <div className="mt-6 flex flex-col gap-1.5">
+                <div className="flex items-baseline gap-1">
+                  <span
+                    className={cn(
+                      "text-4xl font-bold tracking-tight",
+                      plan.isPopular ? "text-[#0a0a0a]" : "text-[#fefefe]"
+                    )}
+                  >
+                    {isMonthly ? plan.price : plan.yearlyPrice}
+                  </span>
+                  <span
+                    className={cn(
+                      "text-sm font-medium",
+                      plan.isPopular
+                        ? "text-[rgba(10,10,10,0.5)]"
+                        : "text-[rgba(254,254,254,0.4)]"
+                    )}
+                  >
+                    {plan.price === "Custom" ? "" : (isMonthly ? "/mo" : "/yr")}
+                  </span>
+                </div>
+                
+                {plan.setupFee && (
+                  <div
+                    className={cn(
+                      "text-xs font-semibold uppercase tracking-wider",
+                      plan.isPopular
+                        ? "text-[rgba(10,10,10,0.5)]"
+                        : "text-[rgba(254,254,254,0.4)]"
+                    )}
+                  >
+                    + {plan.setupFee} Setup Fee
+                  </div>
+                )}
+
+                {!isMonthly && plan.yearlySavings && (
+                  <div className="mt-1">
+                    <span
+                      className={cn(
+                        "inline-flex items-center px-2 py-0.5 rounded text-xs font-bold",
+                        plan.isPopular
+                          ? "bg-emerald-600/15 text-emerald-800 border border-emerald-600/25"
+                          : "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
+                      )}
+                    >
+                      {plan.yearlySavings}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Features */}
