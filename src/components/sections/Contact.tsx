@@ -4,7 +4,7 @@ import { useState } from "react";
 import { CheckCircle } from "lucide-react";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 

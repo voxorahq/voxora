@@ -44,7 +44,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const { email, password } = validation.data;
+    const { email, password, rememberMe } = validation.data;
 
     // ✅ FIND USER
     const user = await User.findOne({ email });
@@ -72,12 +72,14 @@ export async function POST(req: Request) {
     // ✅ RETURN RESPONSE + SET COOKIE (CORRECT WAY)
     const res = NextResponse.json({ success: true });
 
+    const cookieMaxAge = rememberMe ? 60 * 60 * 24 * 30 : 60 * 60 * 24 * 7;
+
     res.cookies.set("token", token, {
       httpOnly: true,
       path: "/",
       sameSite: "lax",
       secure: process.env.NODE_ENV === "production",
-      maxAge: 60 * 60 * 24 * 7,
+      maxAge: cookieMaxAge,
     });
 
     return res;
