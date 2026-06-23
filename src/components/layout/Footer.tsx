@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FOOTER_LINKS, SITE } from "@/lib/constants";
 import SmartPhoneLink from "@/components/ui/SmartPhoneLink";
+import SmartEmailLink from "@/components/ui/SmartEmailLink";
 
 export function Footer() {
   return (
@@ -63,9 +64,12 @@ export function Footer() {
             &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-[rgba(254,254,254,0.5)]">
-            <a href={`mailto:${SITE.email}`} data-magnetic className="transition-colors hover:text-white cursor-none">
-              {SITE.email}
-            </a>
+            <SmartEmailLink
+              email={SITE.email}
+              displayLabel={SITE.email}
+              data-magnetic
+              className="transition-colors hover:text-white cursor-none"
+            />
             <SmartPhoneLink
               phoneRaw={SITE.phone}
               displayLabel={SITE.phone}

@@ -9,6 +9,7 @@ import { SITE } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 import SmartPhoneLink from "@/components/ui/SmartPhoneLink";
+import SmartEmailLink from "@/components/ui/SmartEmailLink";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -64,13 +65,12 @@ export function Contact() {
             <div className="mt-8 space-y-4">
               <div>
                 <p className="text-sm text-[rgba(254,254,254,0.5)]">Email</p>
-                <a
-                  href={`mailto:${SITE.email}`}
+                <SmartEmailLink
+                  email={SITE.email}
+                  displayLabel={SITE.email}
                   data-magnetic
                   className="text-white transition-colors hover:text-[rgba(254,254,254,0.7)] hover:underline cursor-none inline-block"
-                >
-                  {SITE.email}
-                </a>
+                />
               </div>
               <div>
                 <p className="text-sm text-[rgba(254,254,254,0.5)]">Phone</p>
