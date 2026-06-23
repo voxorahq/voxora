@@ -9,7 +9,6 @@ import { ROI } from "@/components/sections/ROI";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { MagneticCursor } from "@/components/ui/magnetic-cursor";
-import { ThemePreviewSelector } from "@/components/ui/ThemePreviewSelector";
 
 export default function Home() {
   return (
@@ -26,7 +25,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <ThemePreviewSelector />
     </MagneticCursor>
   );
 }

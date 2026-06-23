@@ -23,7 +23,7 @@ import type { Demo, FAQItem, HowItWorksStep, Industry, PricingPlan, ROIMetric, T
 export const SITE = {
   name: "Voxora",
   tagline: "AI Receptionists & Voice Agents for Business",
-  email: "hello@voxora.ai",
+  email: "hello@voxorahq.com",
   phone: "+91 78601 35069",
 };
 
