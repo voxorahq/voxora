@@ -419,25 +419,25 @@ Priority order — **do NOT skip anything marked 🔴 or 🟠**.
 
 - [ ] 🔴 **Generate a strong JWT secret** and use `.env.local` for dev, deployment env vars for production
 - [ ] 🔴 **Set `secure: true` on cookies** (conditional on NODE_ENV)
-- [ ] 🔴 **Add webhook authentication** — validate Vapi signature or shared secret
+- [x] 🔴 **Add webhook authentication** — validate Vapi signature or shared secret
 - [ ] 🔴 **Fix contact API** — whitelist fields, don't pass raw body to Mongoose
 - [ ] 🔴 **Fix register route** — add safe JSON parse, remove email enumeration
 - [ ] 🔴 **Add Next.js middleware** — server-side auth for `/dashboards/*` routes
-- [ ] 🔴 **Increase tracking code length** to 8+ characters
-- [ ] 🟠 **Add rate limiting** on login, register, contact, and webhook routes
+- [x] 🔴 **Increase tracking code length** to 8+ characters
+- [x] 🟠 **Add rate limiting** on login, register, contact, and webhook routes
 - [ ] 🟠 **Add input validation** (Zod) on all API routes
 - [ ] 🟠 **Add security headers** in next.config.ts
 - [ ] 🟠 **Add Mongoose schema validation** — required fields, email format, password minlength
 
 ### Phase 2: Infrastructure (Before First Client — 3-4 days)
 
-- [ ] 🟠 **Set up MongoDB Atlas** — replace localhost URI with hosted instance
+- [x] 🟠 **Set up MongoDB Atlas** — replace localhost URI with hosted instance
 - [ ] 🟠 **Create `.env.example`** with all required variables documented
 - [ ] 🟠 **Add error monitoring** (Sentry or similar)
 - [ ] 🟠 **Add email/Slack notifications** when new leads come in
 - [ ] 🟡 **Add pagination** to dashboard contacts API
 - [ ] 🟡 **Add proper error handling/retry** on dashboard data fetch
-- [ ] 🟡 **Fix CSV export** — sanitize against formula injection
+- [x] 🟡 **Fix CSV export** — sanitize against formula injection
 - [ ] 🟡 **Deploy to Vercel/production** with proper env vars
 
 ### Phase 3: Polish & Trust (Before Active Marketing — 2-3 days)
